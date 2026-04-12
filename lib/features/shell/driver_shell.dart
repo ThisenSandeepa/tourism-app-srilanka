@@ -13,6 +13,9 @@ import 'package:ceylon_tours_pro/features/driver/translate/screens/translate_scr
 import 'package:ceylon_tours_pro/features/driver/pulse/screens/pulse_screen.dart';
 import 'package:ceylon_tours_pro/features/driver/vehicle/screens/vehicle_screen.dart';
 
+// Profile
+import 'package:ceylon_tours_pro/features/driver/profile/screens/driver_profile_screen.dart';
+
 class DriverShell extends StatefulWidget {
   const DriverShell({super.key});
 
@@ -108,38 +111,48 @@ class _DriverShellState extends State<DriverShell> {
                         ),
                         const Spacer(),
                         // User Avatar
-                        Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 10,
-                            vertical: 6,
-                          ),
-                          decoration: BoxDecoration(
-                            color: Colors.white.withValues(alpha: 0.2),
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          child: const Row(
-                            children: [
-                              CircleAvatar(
-                                radius: 14,
-                                backgroundColor: Colors.white24,
-                                child: Text(
-                                  'KP',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 11,
-                                    fontWeight: FontWeight.bold,
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const DriverProfileScreen(),
+                              ),
+                            );
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 10,
+                              vertical: 6,
+                            ),
+                            decoration: BoxDecoration(
+                              color: Colors.white.withValues(alpha: 0.2),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: const Row(
+                              children: [
+                                CircleAvatar(
+                                  radius: 14,
+                                  backgroundColor: Colors.white24,
+                                  child: Text(
+                                    'KP',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
                                 ),
-                              ),
-                              SizedBox(width: 6),
-                              Text(
-                                'Kamal Perera',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 13,
+                                SizedBox(width: 6),
+                                Text(
+                                  'Kamal Perera',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 13,
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                       ],
