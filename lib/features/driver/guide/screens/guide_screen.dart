@@ -175,7 +175,8 @@ class _GuideScreenState extends State<GuideScreen> {
   }
 
   Widget _buildRegionFilter() {
-    return Padding(
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
       padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
       child: Row(
         children: _regions.asMap().entries.map((entry) {

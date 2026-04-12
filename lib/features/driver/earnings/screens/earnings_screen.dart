@@ -33,17 +33,19 @@ class EarningsScreen extends StatelessWidget {
         ),
         borderRadius: BorderRadius.circular(12),
       ),
-      child: const Row(
+      child: Row(
         children: [
-          Icon(Icons.attach_money, color: Colors.white, size: 24),
-          SizedBox(width: 10),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text('Professional Ledger', style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
-              SizedBox(height: 2),
-              Text('Track your earnings, performance, and tour analytics', style: TextStyle(color: Colors.white70, fontSize: 12)),
-            ],
+          const Icon(Icons.attach_money, color: Colors.white, size: 24),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: const [
+                Text('Professional Ledger', style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
+                SizedBox(height: 2),
+                Text('Track your earnings, performance, and tour analytics', style: TextStyle(color: Colors.white70, fontSize: 12)),
+              ],
+            ),
           ),
         ],
       ),

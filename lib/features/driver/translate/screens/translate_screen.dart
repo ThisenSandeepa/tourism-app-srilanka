@@ -64,27 +64,29 @@ class _TranslateScreenState extends State<TranslateScreen> {
         ),
         borderRadius: BorderRadius.circular(12),
       ),
-      child: const Row(
+      child: Row(
         children: [
-          Icon(Icons.translate, color: Colors.white, size: 24),
-          SizedBox(width: 10),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Language Bridge',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
+          const Icon(Icons.translate, color: Colors.white, size: 24),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: const [
+                Text(
+                  'Language Bridge',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-              SizedBox(height: 2),
-              Text(
-                'Real-time voice-to-voice translation for seamless communication',
-                style: TextStyle(color: Colors.white70, fontSize: 12),
-              ),
-            ],
+                SizedBox(height: 2),
+                Text(
+                  'Real-time voice-to-voice translation for seamless communication',
+                  style: TextStyle(color: Colors.white70, fontSize: 12),
+                ),
+              ],
+            ),
           ),
         ],
       ),

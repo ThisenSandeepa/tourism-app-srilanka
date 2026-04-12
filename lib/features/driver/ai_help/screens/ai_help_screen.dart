@@ -227,7 +227,8 @@ class _AiHelpScreenState extends State<AiHelpScreen> {
   }
 
   Widget _buildCategoryPills() {
-    return Padding(
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
       padding: const EdgeInsets.fromLTRB(16, 0, 16, 10),
       child: Row(
         children: [

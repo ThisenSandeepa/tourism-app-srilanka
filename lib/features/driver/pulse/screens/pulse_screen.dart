@@ -33,27 +33,29 @@ class PulseScreen extends StatelessWidget {
         ),
         borderRadius: BorderRadius.circular(12),
       ),
-      child: const Row(
+      child: Row(
         children: [
-          Icon(Icons.sensors, color: Colors.white, size: 24),
-          SizedBox(width: 10),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Island Pulse',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
+          const Icon(Icons.sensors, color: Colors.white, size: 24),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: const [
+                Text(
+                  'Island Pulse',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-              SizedBox(height: 2),
-              Text(
-                'Real-time logistics, weather, and safety updates across Sri Lanka',
-                style: TextStyle(color: Colors.white70, fontSize: 12),
-              ),
-            ],
+                SizedBox(height: 2),
+                Text(
+                  'Real-time logistics, weather, and safety updates across Sri Lanka',
+                  style: TextStyle(color: Colors.white70, fontSize: 12),
+                ),
+              ],
+            ),
           ),
         ],
       ),
@@ -367,7 +369,7 @@ class PulseScreen extends StatelessWidget {
             crossAxisCount: 2,
             mainAxisSpacing: 8,
             crossAxisSpacing: 8,
-            childAspectRatio: 1.6,
+            childAspectRatio: 1.4,
             children: weatherData.map((w) {
               return Container(
                 padding: const EdgeInsets.all(12),
@@ -546,7 +548,7 @@ class PulseScreen extends StatelessWidget {
             crossAxisCount: 2,
             mainAxisSpacing: 8,
             crossAxisSpacing: 8,
-            childAspectRatio: 3,
+            childAspectRatio: 2.5,
             children: contacts.map((c) {
               return Container(
                 padding: const EdgeInsets.all(10),
