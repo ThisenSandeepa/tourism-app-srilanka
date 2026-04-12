@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import '../../../../core/theme/app_colors.dart';
+import '../../translate/screens/translate_screen.dart';
+import '../../ai_help/screens/ai_help_screen.dart';
+import '../../guide/screens/guide_screen.dart';
+import '../../pulse/screens/pulse_screen.dart';
 
 class DriverHomeScreen extends StatelessWidget {
   const DriverHomeScreen({super.key});
@@ -17,7 +21,7 @@ class DriverHomeScreen extends StatelessWidget {
           // Today's Schedule
           _buildTodaySchedule(),
           // Quick Action Cards
-          _buildQuickActions(),
+          _buildQuickActions(context),
           // Weather Alert
           _buildWeatherAlert(),
         ],
@@ -97,14 +101,21 @@ class DriverHomeScreen extends StatelessWidget {
               ),
               const Spacer(),
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 10,
+                  vertical: 4,
+                ),
                 decoration: BoxDecoration(
                   color: AppColors.primaryBlue,
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: const Text(
                   'Day 2 of 3',
-                  style: TextStyle(color: Colors.white, fontSize: 11, fontWeight: FontWeight.w600),
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 11,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
               ),
             ],
@@ -113,19 +124,36 @@ class DriverHomeScreen extends StatelessWidget {
           // Guest info
           Row(
             children: [
-              const Icon(Icons.person_outline, size: 16, color: AppColors.textSecondary),
+              const Icon(
+                Icons.person_outline,
+                size: 16,
+                color: AppColors.textSecondary,
+              ),
               const SizedBox(width: 6),
-              const Text('Mr. Zhang Wei', style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600)),
+              const Text(
+                'Mr. Zhang Wei',
+                style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
+              ),
               const SizedBox(width: 6),
-              Text('(China)', style: TextStyle(color: Colors.grey[600], fontSize: 13)),
+              Text(
+                '(China)',
+                style: TextStyle(color: Colors.grey[600], fontSize: 13),
+              ),
             ],
           ),
           const SizedBox(height: 6),
           Row(
             children: [
-              const Icon(Icons.calendar_today, size: 14, color: AppColors.textSecondary),
+              const Icon(
+                Icons.calendar_today,
+                size: 14,
+                color: AppColors.textSecondary,
+              ),
               const SizedBox(width: 6),
-              Text('2026-04-07 to 2026-04-10', style: TextStyle(color: Colors.grey[600], fontSize: 13)),
+              Text(
+                '2026-04-07 to 2026-04-10',
+                style: TextStyle(color: Colors.grey[600], fontSize: 13),
+              ),
             ],
           ),
           const SizedBox(height: 12),
@@ -140,17 +168,41 @@ class DriverHomeScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text.rich(
-                  TextSpan(children: [
-                    TextSpan(text: 'Guest Profile: ', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13)),
-                    TextSpan(text: 'Professional photographer, interested in landscapes and wildlife', style: TextStyle(fontSize: 13)),
-                  ]),
+                  TextSpan(
+                    children: [
+                      TextSpan(
+                        text: 'Guest Profile: ',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 13,
+                        ),
+                      ),
+                      TextSpan(
+                        text:
+                            'Professional photographer, interested in landscapes and wildlife',
+                        style: TextStyle(fontSize: 13),
+                      ),
+                    ],
+                  ),
                 ),
                 SizedBox(height: 4),
                 Text.rich(
-                  TextSpan(children: [
-                    TextSpan(text: 'Special Notes: ', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13)),
-                    TextSpan(text: 'Vegetarian diet, speaks limited English, traveling solo', style: TextStyle(fontSize: 13)),
-                  ]),
+                  TextSpan(
+                    children: [
+                      TextSpan(
+                        text: 'Special Notes: ',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 13,
+                        ),
+                      ),
+                      TextSpan(
+                        text:
+                            'Vegetarian diet, speaks limited English, traveling solo',
+                        style: TextStyle(fontSize: 13),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
@@ -162,11 +214,36 @@ class DriverHomeScreen extends StatelessWidget {
 
   Widget _buildTodaySchedule() {
     final scheduleItems = [
-      {'time': '06:00', 'title': 'Early departure to Nuwara Eliya', 'note': 'Heavy driving day - 3.5 hours', 'highlight': true},
-      {'time': '10:00', 'title': 'Tea Factory Tour', 'note': 'Blue Field Tea Gardens, guest interested in photography', 'highlight': false},
-      {'time': '13:00', 'title': 'Lunch at Grand Hotel', 'note': 'Colonial-style venue', 'highlight': false},
-      {'time': '15:00', 'title': 'Gregory Lake', 'note': 'Boat ride optional', 'highlight': false},
-      {'time': '17:30', 'title': 'Hotel Check-in', 'note': "Jetwing St. Andrew's", 'highlight': false},
+      {
+        'time': '06:00',
+        'title': 'Early departure to Nuwara Eliya',
+        'note': 'Heavy driving day - 3.5 hours',
+        'highlight': true,
+      },
+      {
+        'time': '10:00',
+        'title': 'Tea Factory Tour',
+        'note': 'Blue Field Tea Gardens, guest interested in photography',
+        'highlight': false,
+      },
+      {
+        'time': '13:00',
+        'title': 'Lunch at Grand Hotel',
+        'note': 'Colonial-style venue',
+        'highlight': false,
+      },
+      {
+        'time': '15:00',
+        'title': 'Gregory Lake',
+        'note': 'Boat ride optional',
+        'highlight': false,
+      },
+      {
+        'time': '17:30',
+        'title': 'Hotel Check-in',
+        'note': "Jetwing St. Andrew's",
+        'highlight': false,
+      },
     ];
 
     return Container(
@@ -182,18 +259,26 @@ class DriverHomeScreen extends StatelessWidget {
         children: [
           Row(
             children: [
-              const Text("Today's Schedule", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+              const Text(
+                "Today's Schedule",
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
               const Spacer(),
-              Text('2026-04-08', style: TextStyle(color: Colors.grey[500], fontSize: 13)),
+              Text(
+                '2026-04-08',
+                style: TextStyle(color: Colors.grey[500], fontSize: 13),
+              ),
             ],
           ),
           const SizedBox(height: 14),
-          ...scheduleItems.map((item) => _buildScheduleItem(
-            time: item['time'] as String,
-            title: item['title'] as String,
-            note: item['note'] as String,
-            isHighlighted: item['highlight'] as bool,
-          )),
+          ...scheduleItems.map(
+            (item) => _buildScheduleItem(
+              time: item['time'] as String,
+              title: item['title'] as String,
+              note: item['note'] as String,
+              isHighlighted: item['highlight'] as bool,
+            ),
+          ),
         ],
       ),
     );
@@ -234,18 +319,27 @@ class DriverHomeScreen extends StatelessWidget {
                   children: [
                     Icon(Icons.access_time, size: 14, color: Colors.grey[400]),
                     const SizedBox(height: 2),
-                    Text(time, style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: isHighlighted ? AppColors.primaryBlue : AppColors.textSecondary,
-                    )),
+                    Text(
+                      time,
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w600,
+                        color: isHighlighted
+                            ? AppColors.primaryBlue
+                            : AppColors.textSecondary,
+                      ),
+                    ),
                   ],
                 ),
               ),
             ),
             const SizedBox(width: 8),
             // Location icon
-            Icon(Icons.location_on, size: 16, color: AppColors.primaryBlue.withValues(alpha: 0.7)),
+            Icon(
+              Icons.location_on,
+              size: 16,
+              color: AppColors.primaryBlue.withValues(alpha: 0.7),
+            ),
             const SizedBox(width: 8),
             // Content
             Expanded(
@@ -254,9 +348,18 @@ class DriverHomeScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(title, style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 14)),
+                    Text(
+                      title,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 14,
+                      ),
+                    ),
                     const SizedBox(height: 2),
-                    Text(note, style: TextStyle(fontSize: 12, color: Colors.grey[600])),
+                    Text(
+                      note,
+                      style: TextStyle(fontSize: 12, color: Colors.grey[600]),
+                    ),
                   ],
                 ),
               ),
@@ -267,12 +370,36 @@ class DriverHomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildQuickActions() {
+  Widget _buildQuickActions(BuildContext context) {
     final actions = [
-      {'icon': Icons.translate, 'title': 'Quick Translate', 'subtitle': 'Chinese 🔄 Sinhala', 'color': const Color(0xFF7B1FA2)},
-      {'icon': Icons.smart_toy, 'title': 'Ask AI', 'subtitle': '24/7 Support', 'color': const Color(0xFFE65100)},
-      {'icon': Icons.map_outlined, 'title': 'Location Info', 'subtitle': 'Tea Factory Tours', 'color': const Color(0xFF2E7D32)},
-      {'icon': Icons.sensors, 'title': 'Island Pulse', 'subtitle': 'Live Updates', 'color': const Color(0xFFD32F2F)},
+      {
+        'icon': Icons.translate,
+        'title': 'Quick Translate',
+        'subtitle': 'Chinese 🔄 Sinhala',
+        'color': const Color(0xFF7B1FA2),
+        'screen': const TranslateScreen(),
+      },
+      {
+        'icon': Icons.smart_toy,
+        'title': 'Ask AI',
+        'subtitle': '24/7 Support',
+        'color': const Color(0xFFE65100),
+        'screen': const AiHelpScreen(),
+      },
+      {
+        'icon': Icons.map_outlined,
+        'title': 'Location Info',
+        'subtitle': 'Tea Factory Tours',
+        'color': const Color(0xFF2E7D32),
+        'screen': const GuideScreen(),
+      },
+      {
+        'icon': Icons.sensors,
+        'title': 'Island Pulse',
+        'subtitle': 'Live Updates',
+        'color': const Color(0xFFD32F2F),
+        'screen': const PulseScreen(),
+      },
     ];
 
     return Padding(
@@ -286,26 +413,49 @@ class DriverHomeScreen extends StatelessWidget {
         childAspectRatio: 1.8,
         children: actions.map((action) {
           return Container(
-            padding: const EdgeInsets.all(14),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(12),
               border: Border.all(color: AppColors.divider, width: 0.5),
             ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(action['icon'] as IconData, color: action['color'] as Color, size: 28),
-                const SizedBox(height: 6),
-                Text(
-                  action['title'] as String,
-                  style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 13),
+            child: Material(
+              color: Colors.transparent,
+              child: InkWell(
+                borderRadius: BorderRadius.circular(12),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => action['screen'] as Widget,
+                    ),
+                  );
+                },
+                child: Padding(
+                  padding: const EdgeInsets.all(14),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        action['icon'] as IconData,
+                        color: action['color'] as Color,
+                        size: 28,
+                      ),
+                      const SizedBox(height: 6),
+                      Text(
+                        action['title'] as String,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 13,
+                        ),
+                      ),
+                      Text(
+                        action['subtitle'] as String,
+                        style: TextStyle(color: Colors.grey[500], fontSize: 11),
+                      ),
+                    ],
+                  ),
                 ),
-                Text(
-                  action['subtitle'] as String,
-                  style: TextStyle(color: Colors.grey[500], fontSize: 11),
-                ),
-              ],
+              ),
             ),
           );
         }).toList(),
@@ -329,7 +479,14 @@ class DriverHomeScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Weather Alert', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14, color: Colors.orange[900])),
+                Text(
+                  'Weather Alert',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 14,
+                    color: Colors.orange[900],
+                  ),
+                ),
                 const SizedBox(height: 2),
                 Text(
                   'Heavy fog expected in hill country 6-9 AM. Drive carefully on Kandy-Nuwara Eliya road (A5).',

@@ -6,17 +6,25 @@ class PulseScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      padding: const EdgeInsets.only(bottom: 20),
-      child: Column(
-        children: [
-          _buildHeader(),
-          _buildRoadAlerts(),
-          _buildTrainSchedule(),
-          _buildWeather(),
-          _buildCrowdLevels(),
-          _buildEmergencyContacts(),
-        ],
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        iconTheme: const IconThemeData(color: Colors.black87),
+      ),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.only(bottom: 20),
+        child: Column(
+          children: [
+            _buildHeader(),
+            _buildRoadAlerts(),
+            _buildTrainSchedule(),
+            _buildWeather(),
+            _buildCrowdLevels(),
+            _buildEmergencyContacts(),
+          ],
+        ),
       ),
     );
   }

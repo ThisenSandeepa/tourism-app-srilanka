@@ -80,16 +80,24 @@ class _GuideScreenState extends State<GuideScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      padding: const EdgeInsets.only(bottom: 20),
-      child: Column(
-        children: [
-          _buildHeader(),
-          _buildSearchBar(),
-          _buildRegionFilter(),
-          ..._filteredLocations.map(_buildLocationCard),
-          _buildStats(),
-        ],
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        iconTheme: const IconThemeData(color: Colors.black87),
+      ),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.only(bottom: 20),
+        child: Column(
+          children: [
+            _buildHeader(),
+            _buildSearchBar(),
+            _buildRegionFilter(),
+            ..._filteredLocations.map(_buildLocationCard),
+            _buildStats(),
+          ],
+        ),
       ),
     );
   }

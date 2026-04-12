@@ -48,19 +48,27 @@ class _AiHelpScreenState extends State<AiHelpScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        // Header
-        _buildHeader(),
-        // Suggestion chips
-        _buildSuggestionChips(),
-        // Chat messages
-        Expanded(child: _buildChatArea()),
-        // Input bar
-        _buildInputBar(),
-        // Category pills
-        _buildCategoryPills(),
-      ],
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        iconTheme: const IconThemeData(color: Colors.black87),
+      ),
+      body: Column(
+        children: [
+          // Header
+          _buildHeader(),
+          // Suggestion chips
+          _buildSuggestionChips(),
+          // Chat messages
+          Expanded(child: _buildChatArea()),
+          // Input bar
+          _buildInputBar(),
+          // Category pills
+          _buildCategoryPills(),
+        ],
+      ),
     );
   }
 
