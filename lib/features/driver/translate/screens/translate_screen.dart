@@ -38,24 +38,16 @@ class _TranslateScreenState extends State<TranslateScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        iconTheme: const IconThemeData(color: Colors.black87),
-      ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.only(bottom: 20),
-        child: Column(
-          children: [
-            _buildHeader(),
-            _buildLanguageSelector(),
-            _buildMicButton(),
-            _buildQuickPhrases(),
-            _buildConversations(),
-          ],
-        ),
+    return SingleChildScrollView(
+      padding: const EdgeInsets.only(bottom: 20),
+      child: Column(
+        children: [
+          _buildHeader(),
+          _buildLanguageSelector(),
+          _buildMicButton(),
+          _buildQuickPhrases(),
+          _buildConversations(),
+        ],
       ),
     );
   }
@@ -79,9 +71,19 @@ class _TranslateScreenState extends State<TranslateScreen> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Language Bridge', style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
+              Text(
+                'Language Bridge',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
               SizedBox(height: 2),
-              Text('Real-time voice-to-voice translation for seamless communication', style: TextStyle(color: Colors.white70, fontSize: 12)),
+              Text(
+                'Real-time voice-to-voice translation for seamless communication',
+                style: TextStyle(color: Colors.white70, fontSize: 12),
+              ),
             ],
           ),
         ],
@@ -103,19 +105,34 @@ class _TranslateScreenState extends State<TranslateScreen> {
           Expanded(
             child: Column(
               children: [
-                Text('Listening in', style: TextStyle(color: AppColors.primaryBlue, fontSize: 12)),
+                Text(
+                  'Listening in',
+                  style: TextStyle(color: AppColors.primaryBlue, fontSize: 12),
+                ),
                 const SizedBox(height: 6),
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 12,
+                    vertical: 8,
+                  ),
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.grey[300]!),
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: DropdownButton<String>(
                     value: _sourceLanguage,
-                    items: ['Chinese', 'Russian', 'Japanese', 'French', 'German']
-                        .map((l) => DropdownMenuItem(value: l, child: Text('$l ${_getFlag(l)}', style: const TextStyle(fontSize: 13))))
-                        .toList(),
+                    items:
+                        ['Chinese', 'Russian', 'Japanese', 'French', 'German']
+                            .map(
+                              (l) => DropdownMenuItem(
+                                value: l,
+                                child: Text(
+                                  '$l ${_getFlag(l)}',
+                                  style: const TextStyle(fontSize: 13),
+                                ),
+                              ),
+                            )
+                            .toList(),
                     onChanged: (v) => setState(() => _sourceLanguage = v!),
                     underline: const SizedBox(),
                     isDense: true,
@@ -132,21 +149,34 @@ class _TranslateScreenState extends State<TranslateScreen> {
                 color: Colors.grey[100],
                 borderRadius: BorderRadius.circular(20),
               ),
-              child: const Icon(Icons.swap_horiz, color: AppColors.textSecondary, size: 22),
+              child: const Icon(
+                Icons.swap_horiz,
+                color: AppColors.textSecondary,
+                size: 22,
+              ),
             ),
           ),
           Expanded(
             child: Column(
               children: [
-                Text('Translating to', style: TextStyle(color: AppColors.primaryBlue, fontSize: 12)),
+                Text(
+                  'Translating to',
+                  style: TextStyle(color: AppColors.primaryBlue, fontSize: 12),
+                ),
                 const SizedBox(height: 6),
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 12,
+                    vertical: 10,
+                  ),
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.grey[300]!),
                     borderRadius: BorderRadius.circular(8),
                   ),
-                  child: const Text('Sinhala 🇱🇰', style: TextStyle(fontSize: 13)),
+                  child: const Text(
+                    'Sinhala 🇱🇰',
+                    style: TextStyle(fontSize: 13),
+                  ),
                 ),
               ],
             ),
@@ -158,12 +188,18 @@ class _TranslateScreenState extends State<TranslateScreen> {
 
   String _getFlag(String lang) {
     switch (lang) {
-      case 'Chinese': return '🇨🇳';
-      case 'Russian': return '🇷🇺';
-      case 'Japanese': return '🇯🇵';
-      case 'French': return '🇫🇷';
-      case 'German': return '🇩🇪';
-      default: return '';
+      case 'Chinese':
+        return '🇨🇳';
+      case 'Russian':
+        return '🇷🇺';
+      case 'Japanese':
+        return '🇯🇵';
+      case 'French':
+        return '🇫🇷';
+      case 'German':
+        return '🇩🇪';
+      default:
+        return '';
     }
   }
 
@@ -184,10 +220,18 @@ class _TranslateScreenState extends State<TranslateScreen> {
               duration: const Duration(milliseconds: 200),
               padding: const EdgeInsets.all(28),
               decoration: BoxDecoration(
-                color: _isListening ? const Color(0xFF9C27B0) : const Color(0xFF7B1FA2),
+                color: _isListening
+                    ? const Color(0xFF9C27B0)
+                    : const Color(0xFF7B1FA2),
                 borderRadius: BorderRadius.circular(50),
                 boxShadow: _isListening
-                    ? [BoxShadow(color: const Color(0xFF7B1FA2).withValues(alpha: 0.4), blurRadius: 20, spreadRadius: 4)]
+                    ? [
+                        BoxShadow(
+                          color: const Color(0xFF7B1FA2).withValues(alpha: 0.4),
+                          blurRadius: 20,
+                          spreadRadius: 4,
+                        ),
+                      ]
                     : [],
               ),
               child: Icon(Icons.mic, color: Colors.white, size: 44),
@@ -215,7 +259,10 @@ class _TranslateScreenState extends State<TranslateScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text('Quick Phrases', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+          const Text(
+            'Quick Phrases',
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          ),
           const SizedBox(height: 12),
           GridView.count(
             shrinkWrap: true,
@@ -236,8 +283,18 @@ class _TranslateScreenState extends State<TranslateScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(phrase['en']!, style: TextStyle(fontSize: 12, color: AppColors.primaryBlue, fontWeight: FontWeight.w600)),
-                    Text(phrase['translated']!, style: const TextStyle(fontSize: 11)),
+                    Text(
+                      phrase['en']!,
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: AppColors.primaryBlue,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    Text(
+                      phrase['translated']!,
+                      style: const TextStyle(fontSize: 11),
+                    ),
                   ],
                 ),
               );
@@ -260,7 +317,10 @@ class _TranslateScreenState extends State<TranslateScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text("Today's Conversations", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+          const Text(
+            "Today's Conversations",
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          ),
           const SizedBox(height: 12),
           ..._conversations.map((conv) {
             return Container(
@@ -276,14 +336,36 @@ class _TranslateScreenState extends State<TranslateScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(conv['speaker'], style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 13)),
-                      Text(conv['time'], style: TextStyle(color: Colors.grey[500], fontSize: 11)),
+                      Text(
+                        conv['speaker'],
+                        style: const TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 13,
+                        ),
+                      ),
+                      Text(
+                        conv['time'],
+                        style: TextStyle(color: Colors.grey[500], fontSize: 11),
+                      ),
                     ],
                   ),
                   const SizedBox(height: 4),
-                  Text(conv['original'], style: TextStyle(color: AppColors.primaryBlue, fontSize: 13)),
+                  Text(
+                    conv['original'],
+                    style: TextStyle(
+                      color: AppColors.primaryBlue,
+                      fontSize: 13,
+                    ),
+                  ),
                   const SizedBox(height: 2),
-                  Text(conv['translation'], style: TextStyle(color: Colors.grey[600], fontSize: 12, fontStyle: FontStyle.italic)),
+                  Text(
+                    conv['translation'],
+                    style: TextStyle(
+                      color: Colors.grey[600],
+                      fontSize: 12,
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
                 ],
               ),
             );

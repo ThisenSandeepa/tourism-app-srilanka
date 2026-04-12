@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 import '../../../../core/theme/app_colors.dart';
-import '../../translate/screens/translate_screen.dart';
-import '../../ai_help/screens/ai_help_screen.dart';
-import '../../guide/screens/guide_screen.dart';
-import '../../pulse/screens/pulse_screen.dart';
 
 class DriverHomeScreen extends StatelessWidget {
   const DriverHomeScreen({super.key});
@@ -21,7 +17,7 @@ class DriverHomeScreen extends StatelessWidget {
           // Today's Schedule
           _buildTodaySchedule(),
           // Quick Action Cards
-          _buildQuickActions(context),
+          _buildQuickActions(),
           // Weather Alert
           _buildWeatherAlert(),
         ],
@@ -370,35 +366,31 @@ class DriverHomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildQuickActions(BuildContext context) {
+  Widget _buildQuickActions() {
     final actions = [
       {
         'icon': Icons.translate,
         'title': 'Quick Translate',
         'subtitle': 'Chinese 🔄 Sinhala',
         'color': const Color(0xFF7B1FA2),
-        'screen': const TranslateScreen(),
       },
       {
         'icon': Icons.smart_toy,
         'title': 'Ask AI',
         'subtitle': '24/7 Support',
         'color': const Color(0xFFE65100),
-        'screen': const AiHelpScreen(),
       },
       {
         'icon': Icons.map_outlined,
         'title': 'Location Info',
         'subtitle': 'Tea Factory Tours',
         'color': const Color(0xFF2E7D32),
-        'screen': const GuideScreen(),
       },
       {
         'icon': Icons.sensors,
         'title': 'Island Pulse',
         'subtitle': 'Live Updates',
         'color': const Color(0xFFD32F2F),
-        'screen': const PulseScreen(),
       },
     ];
 
@@ -413,49 +405,33 @@ class DriverHomeScreen extends StatelessWidget {
         childAspectRatio: 1.8,
         children: actions.map((action) {
           return Container(
+            padding: const EdgeInsets.all(14),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(12),
               border: Border.all(color: AppColors.divider, width: 0.5),
             ),
-            child: Material(
-              color: Colors.transparent,
-              child: InkWell(
-                borderRadius: BorderRadius.circular(12),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => action['screen'] as Widget,
-                    ),
-                  );
-                },
-                child: Padding(
-                  padding: const EdgeInsets.all(14),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        action['icon'] as IconData,
-                        color: action['color'] as Color,
-                        size: 28,
-                      ),
-                      const SizedBox(height: 6),
-                      Text(
-                        action['title'] as String,
-                        style: const TextStyle(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 13,
-                        ),
-                      ),
-                      Text(
-                        action['subtitle'] as String,
-                        style: TextStyle(color: Colors.grey[500], fontSize: 11),
-                      ),
-                    ],
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  action['icon'] as IconData,
+                  color: action['color'] as Color,
+                  size: 28,
+                ),
+                const SizedBox(height: 6),
+                Text(
+                  action['title'] as String,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 13,
                   ),
                 ),
-              ),
+                Text(
+                  action['subtitle'] as String,
+                  style: TextStyle(color: Colors.grey[500], fontSize: 11),
+                ),
+              ],
             ),
           );
         }).toList(),

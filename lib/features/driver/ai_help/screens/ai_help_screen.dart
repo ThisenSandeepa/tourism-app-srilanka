@@ -12,7 +12,8 @@ class _AiHelpScreenState extends State<AiHelpScreen> {
   final TextEditingController _messageController = TextEditingController();
   final List<Map<String, dynamic>> _messages = [
     {
-      'text': "Hello! I'm your 24/7 AI Tourism Consultant. How can I help you today?",
+      'text':
+          "Hello! I'm your 24/7 AI Tourism Consultant. How can I help you today?",
       'isBot': true,
       'time': '09:30',
     },
@@ -29,14 +30,15 @@ class _AiHelpScreenState extends State<AiHelpScreen> {
   void _sendMessage(String text) {
     if (text.trim().isEmpty) return;
     setState(() {
-      _messages.add({ 'text': text, 'isBot': false, 'time': '09:31' });
+      _messages.add({'text': text, 'isBot': false, 'time': '09:31'});
       _messageController.clear();
       // Simulated AI response
       Future.delayed(const Duration(milliseconds: 500), () {
         if (mounted) {
           setState(() {
             _messages.add({
-              'text': 'I understand your question. Let me help you with that. As a tourism consultant, I can provide detailed guidance on this topic.',
+              'text':
+                  'I understand your question. Let me help you with that. As a tourism consultant, I can provide detailed guidance on this topic.',
               'isBot': true,
               'time': '09:31',
             });
@@ -48,27 +50,19 @@ class _AiHelpScreenState extends State<AiHelpScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        iconTheme: const IconThemeData(color: Colors.black87),
-      ),
-      body: Column(
-        children: [
-          // Header
-          _buildHeader(),
-          // Suggestion chips
-          _buildSuggestionChips(),
-          // Chat messages
-          Expanded(child: _buildChatArea()),
-          // Input bar
-          _buildInputBar(),
-          // Category pills
-          _buildCategoryPills(),
-        ],
-      ),
+    return Column(
+      children: [
+        // Header
+        _buildHeader(),
+        // Suggestion chips
+        _buildSuggestionChips(),
+        // Chat messages
+        Expanded(child: _buildChatArea()),
+        // Input bar
+        _buildInputBar(),
+        // Category pills
+        _buildCategoryPills(),
+      ],
     );
   }
 
@@ -88,8 +82,14 @@ class _AiHelpScreenState extends State<AiHelpScreen> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('AI Tourism Consultant', style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold)),
-              Text('24/7 instant support', style: TextStyle(color: Color(0xFF7B1FA2), fontSize: 12)),
+              Text(
+                'AI Tourism Consultant',
+                style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+              ),
+              Text(
+                '24/7 instant support',
+                style: TextStyle(color: Color(0xFF7B1FA2), fontSize: 12),
+              ),
             ],
           ),
         ],
@@ -138,9 +138,13 @@ class _AiHelpScreenState extends State<AiHelpScreen> {
           child: Container(
             margin: const EdgeInsets.only(bottom: 10),
             padding: const EdgeInsets.all(12),
-            constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.75),
+            constraints: BoxConstraints(
+              maxWidth: MediaQuery.of(context).size.width * 0.75,
+            ),
             decoration: BoxDecoration(
-              color: isBot ? Colors.grey[100] : AppColors.primaryBlue.withValues(alpha: 0.1),
+              color: isBot
+                  ? Colors.grey[100]
+                  : AppColors.primaryBlue.withValues(alpha: 0.1),
               borderRadius: BorderRadius.circular(12),
             ),
             child: Column(
@@ -148,7 +152,10 @@ class _AiHelpScreenState extends State<AiHelpScreen> {
               children: [
                 Text(msg['text'], style: const TextStyle(fontSize: 13)),
                 const SizedBox(height: 4),
-                Text(msg['time'], style: TextStyle(fontSize: 10, color: Colors.grey[500])),
+                Text(
+                  msg['time'],
+                  style: TextStyle(fontSize: 10, color: Colors.grey[500]),
+                ),
               ],
             ),
           ),
@@ -169,7 +176,11 @@ class _AiHelpScreenState extends State<AiHelpScreen> {
               color: Colors.grey[100],
               borderRadius: BorderRadius.circular(24),
             ),
-            child: const Icon(Icons.mic, color: AppColors.textSecondary, size: 22),
+            child: const Icon(
+              Icons.mic,
+              color: AppColors.textSecondary,
+              size: 22,
+            ),
           ),
           const SizedBox(width: 10),
           // Text field
@@ -189,7 +200,10 @@ class _AiHelpScreenState extends State<AiHelpScreen> {
                   borderRadius: BorderRadius.circular(24),
                   borderSide: BorderSide(color: Colors.grey[300]!),
                 ),
-                contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                contentPadding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 10,
+                ),
               ),
               onSubmitted: _sendMessage,
             ),
@@ -217,7 +231,10 @@ class _AiHelpScreenState extends State<AiHelpScreen> {
       padding: const EdgeInsets.fromLTRB(16, 0, 16, 10),
       child: Row(
         children: [
-          const Text('Popular Categories:', style: TextStyle(fontSize: 12, color: AppColors.textSecondary)),
+          const Text(
+            'Popular Categories:',
+            style: TextStyle(fontSize: 12, color: AppColors.textSecondary),
+          ),
           const SizedBox(width: 8),
           _buildPill('Emergencies', AppColors.emergencyRed),
           const SizedBox(width: 6),
@@ -236,7 +253,14 @@ class _AiHelpScreenState extends State<AiHelpScreen> {
         border: Border.all(color: color),
         borderRadius: BorderRadius.circular(12),
       ),
-      child: Text(text, style: TextStyle(color: color, fontSize: 11, fontWeight: FontWeight.w600)),
+      child: Text(
+        text,
+        style: TextStyle(
+          color: color,
+          fontSize: 11,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
     );
   }
 

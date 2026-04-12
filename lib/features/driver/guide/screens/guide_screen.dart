@@ -11,23 +11,38 @@ class GuideScreen extends StatefulWidget {
 class _GuideScreenState extends State<GuideScreen> {
   int _selectedRegion = 0;
   final List<Map<String, dynamic>> _regions = [
-    {'name': 'Cultural Triangle', 'icon': Icons.temple_buddhist, 'color': AppColors.primaryBlue},
-    {'name': 'Hill Country', 'icon': Icons.terrain, 'color': const Color(0xFF795548)},
-    {'name': 'Deep South & Coast', 'icon': Icons.beach_access, 'color': const Color(0xFFE65100)},
+    {
+      'name': 'Cultural Triangle',
+      'icon': Icons.temple_buddhist,
+      'color': AppColors.primaryBlue,
+    },
+    {
+      'name': 'Hill Country',
+      'icon': Icons.terrain,
+      'color': const Color(0xFF795548),
+    },
+    {
+      'name': 'Deep South & Coast',
+      'icon': Icons.beach_access,
+      'color': const Color(0xFFE65100),
+    },
   ];
 
   final List<Map<String, dynamic>> _locations = [
     {
       'name': 'Sigiriya Rock Fortress',
-      'description': 'Ancient rock fortress built by King Kashyapa in 477 AD. UNESCO World Heritage Site.',
-      'bestTime': 'Early morning (6:30 AM) or late afternoon (3:30 PM) to avoid heat and crowds',
+      'description':
+          'Ancient rock fortress built by King Kashyapa in 477 AD. UNESCO World Heritage Site.',
+      'bestTime':
+          'Early morning (6:30 AM) or late afternoon (3:30 PM) to avoid heat and crowds',
       'duration': '2-3 hours including climb',
       'tips': 4,
       'region': 0,
     },
     {
       'name': 'Anuradhapura',
-      'description': 'Ancient capital city, home to the sacred Sri Maha Bodhi tree (oldest recorded tree in the world)',
+      'description':
+          'Ancient capital city, home to the sacred Sri Maha Bodhi tree (oldest recorded tree in the world)',
       'bestTime': 'Early morning before 10 AM (site is extensive and hot)',
       'duration': 'Full day recommended',
       'tips': 4,
@@ -35,7 +50,8 @@ class _GuideScreenState extends State<GuideScreen> {
     },
     {
       'name': 'Polonnaruwa',
-      'description': 'Medieval capital with stunning ruins and the famous Gal Vihara rock sculptures',
+      'description':
+          'Medieval capital with stunning ruins and the famous Gal Vihara rock sculptures',
       'bestTime': 'Early morning 7-10 AM',
       'duration': 'Half day (4-5 hours)',
       'tips': 3,
@@ -43,7 +59,8 @@ class _GuideScreenState extends State<GuideScreen> {
     },
     {
       'name': 'Nuwara Eliya',
-      'description': 'Little England of Sri Lanka with tea plantations and colonial charm',
+      'description':
+          'Little England of Sri Lanka with tea plantations and colonial charm',
       'bestTime': 'Year-round, best from January-April',
       'duration': '1-2 days recommended',
       'tips': 5,
@@ -51,7 +68,8 @@ class _GuideScreenState extends State<GuideScreen> {
     },
     {
       'name': 'Ella',
-      'description': 'Hill country paradise with Nine Arches Bridge and stunning hikes',
+      'description':
+          'Hill country paradise with Nine Arches Bridge and stunning hikes',
       'bestTime': 'Early morning for hikes, 6 AM start',
       'duration': '1-2 days',
       'tips': 6,
@@ -67,7 +85,8 @@ class _GuideScreenState extends State<GuideScreen> {
     },
     {
       'name': 'Yala National Park',
-      'description': 'Highest leopard density in the world, incredible wildlife safari',
+      'description':
+          'Highest leopard density in the world, incredible wildlife safari',
       'bestTime': 'February to July, early morning safaris',
       'duration': 'Full day safari (5:30 AM - 6 PM)',
       'tips': 4,
@@ -80,24 +99,16 @@ class _GuideScreenState extends State<GuideScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        iconTheme: const IconThemeData(color: Colors.black87),
-      ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.only(bottom: 20),
-        child: Column(
-          children: [
-            _buildHeader(),
-            _buildSearchBar(),
-            _buildRegionFilter(),
-            ..._filteredLocations.map(_buildLocationCard),
-            _buildStats(),
-          ],
-        ),
+    return SingleChildScrollView(
+      padding: const EdgeInsets.only(bottom: 20),
+      child: Column(
+        children: [
+          _buildHeader(),
+          _buildSearchBar(),
+          _buildRegionFilter(),
+          ..._filteredLocations.map(_buildLocationCard),
+          _buildStats(),
+        ],
       ),
     );
   }
@@ -119,11 +130,17 @@ class _GuideScreenState extends State<GuideScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Knowledge Vault', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                Text(
+                  'Knowledge Vault',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
                 SizedBox(height: 2),
                 Text(
                   'Your digital guide library. Access history, tips, and insider knowledge for every destination.',
-                  style: TextStyle(color: AppColors.textSecondary, fontSize: 13),
+                  style: TextStyle(
+                    color: AppColors.textSecondary,
+                    fontSize: 13,
+                  ),
                 ),
               ],
             ),
@@ -168,9 +185,14 @@ class _GuideScreenState extends State<GuideScreen> {
             child: GestureDetector(
               onTap: () => setState(() => _selectedRegion = entry.key),
               child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 14,
+                  vertical: 8,
+                ),
                 decoration: BoxDecoration(
-                  color: isSelected ? entry.value['color'] as Color : Colors.white,
+                  color: isSelected
+                      ? entry.value['color'] as Color
+                      : Colors.white,
                   borderRadius: BorderRadius.circular(20),
                   border: Border.all(
                     color: isSelected
@@ -184,15 +206,21 @@ class _GuideScreenState extends State<GuideScreen> {
                     Icon(
                       entry.value['icon'] as IconData,
                       size: 16,
-                      color: isSelected ? Colors.white : AppColors.textSecondary,
+                      color: isSelected
+                          ? Colors.white
+                          : AppColors.textSecondary,
                     ),
                     const SizedBox(width: 6),
                     Text(
                       entry.value['name'] as String,
                       style: TextStyle(
-                        color: isSelected ? Colors.white : AppColors.textPrimary,
+                        color: isSelected
+                            ? Colors.white
+                            : AppColors.textPrimary,
                         fontSize: 13,
-                        fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
+                        fontWeight: isSelected
+                            ? FontWeight.w600
+                            : FontWeight.normal,
                       ),
                     ),
                   ],
@@ -223,12 +251,19 @@ class _GuideScreenState extends State<GuideScreen> {
               children: [
                 Row(
                   children: [
-                    const Icon(Icons.location_on, color: AppColors.activeGreen, size: 18),
+                    const Icon(
+                      Icons.location_on,
+                      color: AppColors.activeGreen,
+                      size: 18,
+                    ),
                     const SizedBox(width: 6),
                     Expanded(
                       child: Text(
                         location['name'],
-                        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ],
@@ -243,16 +278,29 @@ class _GuideScreenState extends State<GuideScreen> {
                 Row(
                   children: [
                     Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 8,
+                        vertical: 3,
+                      ),
                       decoration: BoxDecoration(
                         color: AppColors.activeGreen,
                         borderRadius: BorderRadius.circular(4),
                       ),
-                      child: const Text('Best Time', style: TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.w600)),
+                      child: const Text(
+                        'Best Time',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 10,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
                     ),
                     const SizedBox(width: 8),
                     Expanded(
-                      child: Text(location['bestTime'], style: TextStyle(fontSize: 12, color: Colors.grey[600])),
+                      child: Text(
+                        location['bestTime'],
+                        style: TextStyle(fontSize: 12, color: Colors.grey[600]),
+                      ),
                     ),
                   ],
                 ),
@@ -261,21 +309,37 @@ class _GuideScreenState extends State<GuideScreen> {
                 Row(
                   children: [
                     Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 8,
+                        vertical: 3,
+                      ),
                       decoration: BoxDecoration(
                         color: AppColors.primaryBlue,
                         borderRadius: BorderRadius.circular(4),
                       ),
-                      child: const Text('Duration', style: TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.w600)),
+                      child: const Text(
+                        'Duration',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 10,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
                     ),
                     const SizedBox(width: 8),
-                    Text(location['duration'], style: TextStyle(fontSize: 12, color: Colors.grey[600])),
+                    Text(
+                      location['duration'],
+                      style: TextStyle(fontSize: 12, color: Colors.grey[600]),
+                    ),
                   ],
                 ),
                 const SizedBox(height: 10),
                 Text(
                   '${location['tips']} insider tips • Full history available',
-                  style: TextStyle(color: AppColors.primaryBlue.withValues(alpha: 0.7), fontSize: 12),
+                  style: TextStyle(
+                    color: AppColors.primaryBlue.withValues(alpha: 0.7),
+                    fontSize: 12,
+                  ),
                 ),
               ],
             ),
@@ -306,7 +370,10 @@ class _GuideScreenState extends State<GuideScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text('Knowledge Base Stats', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14)),
+          const Text(
+            'Knowledge Base Stats',
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+          ),
           const SizedBox(height: 10),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -324,7 +391,14 @@ class _GuideScreenState extends State<GuideScreen> {
   Widget _buildStatItem(String count, String label) {
     return Column(
       children: [
-        Text(count, style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: AppColors.primaryBlue)),
+        Text(
+          count,
+          style: const TextStyle(
+            fontSize: 22,
+            fontWeight: FontWeight.bold,
+            color: AppColors.primaryBlue,
+          ),
+        ),
         Text(label, style: TextStyle(fontSize: 12, color: Colors.grey[600])),
       ],
     );
