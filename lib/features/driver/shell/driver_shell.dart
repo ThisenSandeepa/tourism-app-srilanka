@@ -2,19 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:ceylon_tours_pro/core/theme/app_colors.dart';
 
 // Driver Home Screen
-import 'package:ceylon_tours_pro/features/driver/home/screens/driver_home_screen.dart';
-import 'package:ceylon_tours_pro/features/driver/scan/screens/scan_screen.dart';
-import 'package:ceylon_tours_pro/features/driver/guide/screens/guide_screen.dart';
-import 'package:ceylon_tours_pro/features/driver/ai_help/screens/ai_help_screen.dart';
+import 'package:ceylon_tours_pro/features/driver/screens/driver_home_screen.dart';
+import 'package:ceylon_tours_pro/features/driver/screens/scan_screen.dart';
+import 'package:ceylon_tours_pro/features/driver/screens/guide_screen.dart';
+import 'package:ceylon_tours_pro/features/driver/screens/ai_help_screen.dart';
 
 // Bottom Nav Screens
-import 'package:ceylon_tours_pro/features/driver/earnings/screens/earnings_screen.dart';
-import 'package:ceylon_tours_pro/features/driver/translate/screens/translate_screen.dart';
-import 'package:ceylon_tours_pro/features/driver/pulse/screens/pulse_screen.dart';
-import 'package:ceylon_tours_pro/features/driver/vehicle/screens/vehicle_screen.dart';
+import 'package:ceylon_tours_pro/features/driver/screens/earnings_screen.dart';
+import 'package:ceylon_tours_pro/features/driver/screens/translate_screen.dart';
+import 'package:ceylon_tours_pro/features/driver/screens/pulse_screen.dart';
+import 'package:ceylon_tours_pro/features/driver/screens/vehicle_screen.dart';
 
 // Profile
-import 'package:ceylon_tours_pro/features/driver/profile/screens/driver_profile_screen.dart';
+import 'package:ceylon_tours_pro/features/driver/screens/driver_profile_screen.dart';
 
 class DriverShell extends StatefulWidget {
   const DriverShell({super.key});

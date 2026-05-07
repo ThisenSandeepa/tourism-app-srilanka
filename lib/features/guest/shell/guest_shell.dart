@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:ceylon_tours_pro/core/theme/app_colors.dart';
 
-import 'package:ceylon_tours_pro/features/guest/home/screens/guest_home_screen.dart';
-import 'package:ceylon_tours_pro/features/guest/itinerary/screens/itinerary_screen.dart';
-import 'package:ceylon_tours_pro/features/guest/explore/screens/explore_screen.dart';
-import 'package:ceylon_tours_pro/features/guest/tip/screens/tip_screen.dart';
-import 'package:ceylon_tours_pro/features/guest/profile/screens/guest_profile_screen.dart';
+import 'package:ceylon_tours_pro/features/guest/screens/guest_home_screen.dart';
+import 'package:ceylon_tours_pro/features/guest/screens/itinerary_screen.dart';
+import 'package:ceylon_tours_pro/features/guest/screens/explore_screen.dart';
+import 'package:ceylon_tours_pro/features/guest/screens/tip_screen.dart';
+import 'package:ceylon_tours_pro/features/guest/screens/guest_profile_screen.dart';
 
 class GuestShell extends StatefulWidget {
   final VoidCallback onLogout;

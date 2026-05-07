@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../core/theme/app_colors.dart';
+import '../../../core/theme/app_colors.dart';
 
 class DriverProfileScreen extends StatelessWidget {
   const DriverProfileScreen({super.key});
